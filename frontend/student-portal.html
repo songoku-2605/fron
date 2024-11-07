@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" type="svg" href="book.svg"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .chart-container {
+        position: relative;
+        width: 80%;
+        margin: auto;
+    }
+    
+    canvas {
+        max-width: 100%;
+    }
+    </style>
+    <link rel="stylesheet" href="styles1.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="user-img.jpg" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">Studnet</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="student-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <li>
+                                <a href="stude_basic.html">
+                                  <i class="icon ph-bold ph-user"></i>
+                                  <span class="text">Basic Info</span>
+                                </a>
+                              </li>
+                                
+                            <li>
+                                <a href="#">
+                                  <i class="icon ph-bold ph-chart-bar"></i>
+                                  <span class="text">Attendance</span>
+                                </a>
+                            </li>
+                        <!-- <li>
+                          <a href="#">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Exam Time Table</span>
+                          </a>
+                        </li>
+                        <li class="active">
+                            <a href="#">
+                              <i class="icon ph-bold ph-file-text"></i>
+                              <span class="text">Results</span>
+                            </a>
+                          </li>
+                        <li>
+                          <a href="#">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Download</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                          </a>
+                          <ul class="sub-menu">
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-ticket"></i>
+                                <span class="text">Hall Ticke</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-receipt"></i>
+                                <span class="text">Reciept</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-file"></i>
+                                <span class="text">Attendance Sheet</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <span class="text">Payouts</span>
+                              </a>
+                            </li> -->
+                          </ul>
+                        </li>
+                      </ul>
+                  </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+      <h1>Course: Computer Science Engineering (CSE)</h1>
+      <div class="chart-container">
+          <canvas id="attendanceChart"></canvas>
+      </div>
+  </div>
+</div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+      integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Data for the pie chart (sample attendance data)
+const attendanceData = {
+  labels: ['Present', 'Absent'],
+  datasets: [{
+      label: 'Attendance',
+      data: [80, 20], // 80% present, 20% absent
+      backgroundColor: [
+          'rgba(75, 192, 192, 0.6)', // Present
+          'rgba(255, 99, 132, 0.6)'  // Absent
+      ],
+      borderColor: [
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 99, 132, 1)'
+      ],
+      borderWidth: 1
+  }]
+};
+
+// Config for the pie chart
+const config = {
+  type: 'pie',
+  data: attendanceData,
+  options: {
+      responsive: true,
+      plugins: {
+          legend: {
+              position: 'top',
+          },
+          title: {
+              display: true,
+              text: 'Attendance Overview'
+          }
+      }
+  },
+};
+
+// Create the pie chart
+const attendanceChart = new Chart(
+  document.getElementById('attendanceChart'),
+  config
+);
+
+    </script>
+    <script src="script.js"></script> 
+</body>
+</html>

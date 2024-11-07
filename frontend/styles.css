@@ -1,0 +1,172 @@
+/* Apply a universal reset for all elements */
+* {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+    font-family: sans-serif; /* Set default font family */
+    color: white; /* Set default text color to white */
+}
+
+/* Styling for the body element */
+body {
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background: url("./bg.jpg"); /* Set background image */
+    background-size: cover; /* Cover entire area with background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    /* Uncomment to use a gradient background instead */
+    /* background: linear-gradient(to right, #db1a60, #ff9966); */
+}
+
+/* Styles for the form element */
+form {
+    display: flexbox; /* Using flexbox for layout (note: should be 'flex') */
+    flex-direction: column; /* Arrange children in a column */
+    gap: 2rem; /* Space between form elements */
+    padding: 3rem 2rem; /* Padding inside the form */
+    background: rgba(0, 0, 0, 0.607); /* Semi-transparent black background */
+    backdrop-filter: blur(3px); /* Blur background behind the form */
+    border-radius: 1rem; /* Rounded corners */
+}
+
+/* Heading style inside the form */
+form h1 {
+    text-align: center; /* Center the heading text */
+    letter-spacing: auto; /* Default letter spacing */
+    font-size: 45px; /* Set font size */
+    font-weight: bold; /* Make text bold */
+    font-family: 'Times New Roman', Times, serif; /* Specific font family for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Label style */
+label {
+    font-size: 18px; /* Set font size for labels */
+}
+
+/* Style for divs inside the form */
+form div {
+    margin-bottom: 1rem; /* Space below each form section */
+}
+
+/* Style for nested divs within form divs */
+form div div {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: row-reverse; /* Align items in reverse row order */
+    align-items: center; /* Center items vertically */
+    line-height: 30px; /* Set line height */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    border-bottom: 2px solid white; /* White bottom border */
+}
+
+/* Icon style within the form */
+form i {
+    margin-right: 1rem; /* Space to the right of the icon */
+    font-size: 20px; /* Set font size for icons */
+}
+
+/* Input and select elements styling */
+input, select {
+    all: unset; /* Remove default styles */
+    transition: .1s ease-in-out; /* Smooth transition for styles */
+    font-size: 17px; /* Set font size */
+}
+
+/* General size settings for input, button, and select */
+input, button, select {
+    height: 50px; /* Set height */
+    width: 300px; /* Set width */
+    margin-top: .2rem; /* Space above these elements */
+}
+
+/* Button styles */
+button {
+    background: #dbe2f4; /* Light background color */
+    color: rgb(11, 8, 8); /* Dark text color */
+    font-weight: bold; /* Bold font */
+    font-size: 20px; /* Set font size */
+    width: 100%; /* Full width */
+    border: none; /* No border */
+    border-radius: 5rem; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: .1s ease-in; /* Smooth transition on hover */
+    margin-bottom: 20px; /* Space below the button */
+}
+
+/* Button hover effect */
+button:hover {
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/* Select element styling */
+select {
+    font-size: 17px; /* Set font size */
+    border: 1px solid white; /* White border */
+    border-radius: 1rem; /* Rounded corners */
+    padding: 5px 10px; /* Padding for vertical balance */
+    color: white; /* Text color */
+    background: transparent; /* Transparent background */
+    line-height: 1.5; /* Set line height */
+    height: auto; /* Allow height to adjust based on content */
+}
+
+/* Styles for options within the select element */
+select option {
+    font-size: 17px; /* Font size for options */
+    color: black; /* Text color for options */
+    background: white; /* Background color for options */
+    line-height: normal; /* Normal line height for options */
+    padding: 5px; /* Padding for options */
+    margin: 0; /* Reset default margin */
+}
+
+/* Style for nested divs inside form divs */
+form div div {
+    line-height: normal; /* Reset line height for nested divs */
+    padding-bottom: 0; /* Remove bottom padding */
+}
+
+/* Anchor link styling */
+a {
+    color: #ff884d; /* Set link color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Anchor link hover effect */
+a:hover {
+    text-decoration: underline; /* Underline links on hover */
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 550px) {
+    input, button, select {
+        width: 100%; /* Full width on small screens */
+    }
+}
+
+/* Styles for the portal page */
+.portal-page {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    height: 100vh; /* Full viewport height */
+    background: rgba(0, 0, 0, 0.607); /* Semi-transparent black background */
+    backdrop-filter: blur(3px); /* Blur background */
+    color: white; /* Text color */
+    text-align: center; /* Center text alignment */
+}
+
+/* Heading style for the portal page */
+.portal-page h1 {
+    font-size: 3rem; /* Set font size */
+    margin-bottom: 1rem; /* Space below heading */
+}
+
+/* Paragraph style for the portal page */
+.portal-page p {
+    font-size: 1.5rem; /* Set font size for paragraphs */
+}

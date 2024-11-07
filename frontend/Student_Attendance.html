@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" type="svg" href="book.svg"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .main-contain {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 50px;
+        }
+        /* Progress Bar Container */
+        .progress-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .subject-name {
+            flex: 1;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-right: 20px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            text-align: right;
+            padding-right: 10px;
+            box-sizing: border-box;
+            color: white;
+            font-weight: bold;
+            line-height: 30px; /* Center the text vertically */
+        }
+
+        .percentage {
+            font-weight: bold;
+            color: #000;
+            margin-left: 10px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="styles1.css">
+    <title>Student Attendance</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="user-img.jpg" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">Studnet</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="student-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <li>
+                                <a href="stude_basic.html">
+                                  <i class="icon ph-bold ph-user"></i>
+                                  <span class="text">Basic Info</span>
+                                </a>
+                              </li>
+                                
+                            <li>
+                                <a href="#">
+                                  <i class="icon ph-bold ph-chart-bar"></i>
+                                  <span class="text">Attendance</span>
+                                </a>
+                            </li>
+                        <!-- <li>
+                          <a href="#">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Exam Time Table</span>
+                          </a>
+                        </li>
+                        <li class="active">
+                            <a href="#">
+                              <i class="icon ph-bold ph-file-text"></i>
+                              <span class="text">Results</span>
+                            </a>
+                          </li>
+                        <li>
+                          <a href="#">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Download</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                          </a>
+                          <ul class="sub-menu">
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-ticket"></i>
+                                <span class="text">Hall Ticke</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-receipt"></i>
+                                <span class="text">Reciept</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-file"></i>
+                                <span class="text">Attendance Sheet</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <span class="text">Payouts</span>
+                              </a>
+                            </li> -->
+                          </ul>
+                        </li>
+                      </ul>
+                  </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-contain">
+        <h2>Attendance Graph for CSE Subjects</h2>
+
+        <!-- Graph for All Subjects -->
+        <div class="chart-container">
+            <canvas id="attendanceChart"></canvas>
+        </div>
+
+        <!-- Disabled Buttons Showing Attendance Percentage -->
+        <h2>Attendance Progress for CSE Subjects</h2>
+
+        <!-- Progress Bars for Subjects -->
+        <div class="progress-container">
+            <span class="subject-name">Database Management Systems</span>
+            <div class="progress">
+                <div class="progress-bar" id="dbmsProgressBar"></div>
+            </div>
+            <span class="percentage" id="dbmsPercentage">90%</span>
+        </div>
+
+        <div class="progress-container">
+            <span class="subject-name">Operating Systems</span>
+            <div class="progress">
+                <div class="progress-bar" id="osProgressBar"></div>
+            </div>
+            <span class="percentage" id="osPercentage">85%</span>
+        </div>
+
+        <div class="progress-container">
+            <span class="subject-name">Computer Networks</span>
+            <div class="progress">
+                <div class="progress-bar" id="cnProgressBar"></div>
+            </div>
+            <span class="percentage" id="cnPercentage">80%</span>
+        </div>
+
+        <div class="progress-container">
+            <span class="subject-name">Data Structures</span>
+            <div class="progress">
+                <div class="progress-bar" id="dsProgressBar"></div>
+            </div>
+            <span class="percentage" id="dsPercentage">88%</span>
+        </div>
+
+    </div>
+    <script>
+        // Attendance data for each subject
+        const subjectAttendance = {
+            'Database Management': 90,
+            'Operating Systems': 85,
+            'Computer Networks': 80,
+            'Data Structures': 88
+        };
+
+        // Create the main chart for all subjects
+        const ctx = document.getElementById('attendanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(subjectAttendance),
+                datasets: [{
+                    label: 'Attendance Percentage',
+                    data: Object.values(subjectAttendance),
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        function setProgress(subject, percentage) {
+            const progressBar = document.getElementById(`${subject}ProgressBar`);
+            const percentageText = document.getElementById(`${subject}Percentage`);
+
+            progressBar.style.width = percentage + '%';
+            percentageText.innerText = percentage + '%';
+            switch (subject) {
+                case 'dbms':
+                    progressBar.style.backgroundColor = 'rgba(75, 192, 192, 0.2)'; 
+                    progressBar.style.borderBlockColor = 'rgba(75, 192, 192, 1)';
+                    break;
+                case 'os':
+                    progressBar.style.backgroundColor = 'rgba(153, 102, 255, 0.2)'; 
+                    progressBar.style.borderBlockColor = 'rgba(153, 102, 255, 1)';
+                    break;
+                case 'cn':
+                    progressBar.style.backgroundColor = 'rgba(255, 159, 64, 0.2)'; 
+                    progressBar.style.borderBlockColor ='rgba(255, 159, 64, 1)';
+                    break;
+                case 'ds':
+                    progressBar.style.backgroundColor = 'rgba(255, 99, 132, 0.2)';
+                    progressBar.style.borderBlockColor = 'rgba(255, 99, 132, )';
+                    break;
+                default:
+                    progressBar.style.backgroundColor = '#e0e0e0'; // Default color
+            }
+        }
+
+        // Set the attendance progress for each subject
+        setProgress('dbms', subjectAttendance['Database Management']);
+        setProgress('os', subjectAttendance['Operating Systems']);
+        setProgress('cn', subjectAttendance['Computer Networks']);
+        setProgress('ds', subjectAttendance['Data Structures']);
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

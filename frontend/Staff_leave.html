@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" type="svg" href="book.svg"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+     .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            flex: 1; /* Allow the main content to take available space */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Set a width for the form */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        button {
+            width: 75% !important;
+            padding: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .message {
+            margin-top: 20px;
+            display: none;
+            color: green;
+        }
+        .main-contain {
+            flex: 1;
+            padding: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="styles1.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">Staff</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="staff-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="Staff_basic.html">
+                              <i class="icon ph-bold ph-user"></i>
+                              <span class="text">Basic Info</span>
+                            </a>
+                        </li>       
+                        <li>
+                            <a href="MyAttendence.html">
+                              <i class="icon ph-bold ph-chart-bar"></i>
+                              <span class="text">Attendance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Staff_leave.html">
+                              <i class="icon ph-bold ph-file-text"></i>
+                              <span class="text">Apply Leaves</span>
+                            </a>
+                        </li>
+                        <li>
+                          <a href="Staff_tt.html">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Time Table</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="Sbattendance.html">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Student Attendance</span>
+                            <!-- <i class="arrow ph-bold ph-caret-down"></i> -->
+                          </a>
+                          <!-- <ul class="sub-menu">
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-ticket"></i>
+                                <span class="text">Class A</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-receipt"></i>
+                                <span class="text">Class B</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-file"></i>
+                                <span class="text">Class C</span>
+                              </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                  <i class="ph-bold ph-file"></i>
+                                  <span class="text">Class D</span>
+                                </a>
+                              </li> -->
+                            <!-- <li>
+                              <a href="#">
+                                <span class="text">Payouts</span>
+                              </a>
+                            </li> -->
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-contain">
+        <div class="container">
+            <h2>Apply for Leave</h2>
+            <form id="leaveForm">
+                <div class="form-group">
+                    <label for="leaveType">Leave Type</label>
+                    <select id="leaveType" required>
+                        <option value="" disabled selected>Select Leave Type</option>
+                        <option value="Sick Leave">Sick Leave</option>
+                        <option value="Casual Leave">Casual Leave</option>
+                        <option value="Annual Leave">Annual Leave</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" id="endDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason for Leave</label>
+                    <textarea id="reason" rows="4" required></textarea>
+                </div>
+                <button type="submit">Submit Leave Application</button>
+                <div class="message" id="message">Leave application submitted successfully!</div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('leaveForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collecting form data
+            const staffName = document.getElementById('staffName').value;
+            const leaveType = document.getElementById('leaveType').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            const reason = document.getElementById('reason').value;
+
+            // Simulating sending leave application to HOD
+            const leaveApplication = {
+                staffName,
+                leaveType,
+                startDate,
+                endDate,
+                reason,
+            };
+
+            // Log the leave application to the console (or send it to a server)
+            console.log('Leave Application Sent to HOD:', leaveApplication);
+
+            // Display success message
+            document.getElementById('message').style.display = 'block';
+
+            // Clear the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

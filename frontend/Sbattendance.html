@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles1.css">
+    <title>Attendance Taking</title>
+    <style>
+        /* Basic Reset */
+        .container {
+            display: block !important;
+        }
+        .main-contain {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Attendance form styles */
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        select {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .attendance-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .attendance-button {
+            padding: 10px 20px;
+            border: 2px solid green; /* Default outline */
+            border-radius: 4px;
+            background-color: white;
+            color: black; /* Black color for text */
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .attendance-button.selected {
+            border-color: red; /* Outline when selected first time */
+        }
+
+        .attendance-button.pressed {
+            border-color: green; /* Outline when pressed second time */
+        }
+
+        .attendance-button:hover {
+            opacity: 0.8;
+            background-color: #fff !important;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            border: none;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">Staff</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="staff-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="Staff_basic.html">
+                              <i class="icon ph-bold ph-user"></i>
+                              <span class="text">Basic Info</span>
+                            </a>
+                        </li>       
+                        <li>
+                            <a href="MyAttendence.html">
+                              <i class="icon ph-bold ph-chart-bar"></i>
+                              <span class="text">Attendance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Staff_leave.html">
+                              <i class="icon ph-bold ph-file-text"></i>
+                              <span class="text">Apply Leaves</span>
+                            </a>
+                        </li>
+                        <li>
+                          <a href="Staff_tt.html">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Time Table</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="Sbattendance.html">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Student Attendance</span>
+                            <!-- <i class="arrow ph-bold ph-caret-down"></i> -->
+                          </a>
+                          <!-- <ul class="sub-menu">
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-ticket"></i>
+                                <span class="text">Class A</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-receipt"></i>
+                                <span class="text">Class B</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-file"></i>
+                                <span class="text">Class C</span>
+                              </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                  <i class="ph-bold ph-file"></i>
+                                  <span class="text">Class D</span>
+                                </a>
+                              </li> -->
+                            <!-- <li>
+                              <a href="#">
+                                <span class="text">Payouts</span>
+                              </a>
+                            </li> -->
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-contain">
+        <div class="container">
+            <h2>Attendance Taking</h2>
+            <label for="classSelect">Select Class:</label>
+            <select id="classSelect">
+                <option value="" disabled selected>Select Class</option>
+                <option value="A">Class A</option>
+                <option value="B">Class B</option>
+                <option value="C">Class C</option>
+                <option value="D">Class D</option>
+            </select>
+
+            <div class="attendance-buttons" id="attendanceButtons"></div>
+            <button class="submit-btn" id="submitBtn">Submit Attendance</button>
+        </div>
+    </div>
+
+    <script>
+        const classSelect = document.getElementById('classSelect');
+        const attendanceButtonsDiv = document.getElementById('attendanceButtons');
+        const submitBtn = document.getElementById('submitBtn');
+        let attendanceData = {};  // To store selected attendance
+
+        // Add event listener to class selection dropdown
+        classSelect.addEventListener('change', function () {
+            const selectedClass = this.value;
+            attendanceButtonsDiv.innerHTML = '';  // Clear previous buttons
+
+            // Define roll numbers for each class
+            const rollNumbers = {
+                A: ['Roll 1', 'Roll 2', 'Roll 3', 'Roll 4'],
+                B: ['Roll 5', 'Roll 6', 'Roll 7', 'Roll 8'],
+                C: ['Roll 9', 'Roll 10', 'Roll 11', 'Roll 12'],
+                D: ['Roll 13', 'Roll 14', 'Roll 15', 'Roll 16']
+            };
+
+            attendanceData[selectedClass] = {};  // Initialize attendance for selected class
+
+            // Create buttons for the selected class's roll numbers
+            rollNumbers[selectedClass].forEach(rollNumber => {
+                const button = document.createElement('button');
+                button.textContent = rollNumber;
+                button.className = 'attendance-button';
+                attendanceData[selectedClass][rollNumber] = false; // Default not selected (false)
+
+                button.addEventListener('click', function () {
+                    if (button.classList.contains('pressed')) {
+                        button.classList.remove('pressed');
+                        button.classList.add('selected');
+                        attendanceData[selectedClass][rollNumber] = false; // Mark as absent
+                    } else if (button.classList.contains('selected')) {
+                        button.classList.remove('selected');
+                        button.classList.add('pressed');
+                        attendanceData[selectedClass][rollNumber] = true; // Mark as present
+                    } else {
+                        button.classList.add('selected');
+                        attendanceData[selectedClass][rollNumber] = false; // Default selected as absent
+                    }
+                });
+
+                attendanceButtonsDiv.appendChild(button);
+            });
+        });
+
+        // Submit button to store attendance data in local storage
+        submitBtn.addEventListener('click', function () {
+            if (!classSelect.value) {
+                alert("Please select a class");
+                return;
+            }
+
+            // Store attendance data in local storage
+            localStorage.setItem('attendanceData', JSON.stringify(attendanceData));
+            alert("Attendance submitted and stored in local storage!");
+
+            // Clear previous selections and reset form
+            attendanceButtonsDiv.innerHTML = '';
+            classSelect.selectedIndex = 0;
+        });
+
+        // Function to retrieve attendance data from local storage
+        function getAttendanceData() {
+            const storedData = localStorage.getItem('attendanceData');
+            return storedData ? JSON.parse(storedData) : {};
+        }
+    </script>
+    <script src="script.js"></script> 
+</body>
+</html>

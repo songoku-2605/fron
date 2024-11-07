@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" type="svg" href="book.svg"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .main-contain {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: auto !important;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden; /* Rounded corners */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <link rel="stylesheet" href="styles1.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">Staff</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="staff-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="Staff_basic.html">
+                              <i class="icon ph-bold ph-user"></i>
+                              <span class="text">Basic Info</span>
+                            </a>
+                        </li>       
+                        <li>
+                            <a href="MyAttendence.html">
+                              <i class="icon ph-bold ph-chart-bar"></i>
+                              <span class="text">Attendance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Staff_leave.html">
+                              <i class="icon ph-bold ph-file-text"></i>
+                              <span class="text">Apply Leaves</span>
+                            </a>
+                        </li>
+                        <li>
+                          <a href="Staff_tt.html">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Time Table</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="Sbattendance.html">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Student Attendance</span>
+                            <!-- <i class="arrow ph-bold ph-caret-down"></i> -->
+                          </a>
+                          <!-- <ul class="sub-menu">
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-ticket"></i>
+                                <span class="text">Class A</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-receipt"></i>
+                                <span class="text">Class B</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#">
+                                <i class="ph-bold ph-file"></i>
+                                <span class="text">Class C</span>
+                              </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                  <i class="ph-bold ph-file"></i>
+                                  <span class="text">Class D</span>
+                                </a>
+                              </li> -->
+                            <!-- <li>
+                              <a href="#">
+                                <span class="text">Payouts</span>
+                              </a>
+                            </li> -->
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-contain">
+        <div class="container">
+            <h2>Staff Timetable</h2>
+            <form id="timetableForm">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" required>
+                        <option value="" disabled selected>Select Subject</option>
+                        <option value="Data Structures">Data Structures</option>
+                        <option value="Algorithms">Algorithms</option>
+                        <option value="Database Management Systems">Database Management Systems</option>
+                        <option value="Operating Systems">Operating Systems</option>
+                        <option value="Computer Networks">Computer Networks</option>
+                        <option value="Software Engineering">Software Engineering</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="day">Day</label>
+                    <select id="day" required>
+                        <option value="" disabled selected>Select Day</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time</label>
+                    <input type="text" id="time" placeholder="e.g. 10:00 AM - 11:00 AM" required>
+                </div>
+                <button type="submit">Add Timetable Entry</button>
+            <!-- </form>
+            <table id="timetable">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table> -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Function to load timetable from local storage
+        function loadTimetable() {
+            const timetableData = JSON.parse(localStorage.getItem('timetable')) || [];
+            const timetableBody = document.querySelector('#timetable tbody');
+            timetableBody.innerHTML = ''; // Clear existing entries
+
+            timetableData.forEach(entry => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${entry.subject}</td>
+                    <td>${entry.day}</td>
+                    <td>${entry.time}</td>
+                `;
+                timetableBody.appendChild(row);
+            });
+        }
+
+        // Function to save timetable to local storage
+        function saveTimetable(entry) {
+            const timetableData = JSON.parse(localStorage.getItem('timetable')) || [];
+            timetableData.push(entry);
+            localStorage.setItem('timetable', JSON.stringify(timetableData));
+        }
+
+        document.getElementById('timetableForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collecting form data
+            const subject = document.getElementById('subject').value;
+            const day = document.getElementById('day').value;
+            const time = document.getElementById('time').value;
+
+            const entry = { subject, day, time };
+
+            // Save entry to local storage
+            saveTimetable(entry);
+
+            // Load updated timetable
+            loadTimetable();
+
+            // Clear the form
+            this.reset();
+        });
+
+        // Load timetable on page load
+        loadTimetable();
+    </script>
+</body>
+</html>

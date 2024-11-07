@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <link rel="stylesheet" href="styles1.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">HOD - Head of Department</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="hod-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="basic_info.html">
+                              <i class="icon ph-bold ph-user"></i>
+                              <span class="text">Basic Info</span>
+                            </a>
+                        </li>
+                        <li>       
+                        <a href="#">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Management</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                          </a>
+                          <ul class="sub-menu">
+                          <li>
+                              <a href="staff_management.html">
+                                <i class="icon ph-bold ph-user"></i>
+                                <span class="text">Staff Management</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="student_management.html">
+                                <i class="icon ph-bold ph-user"></i>
+                                <span class="text">Student Management</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="events_management.html">
+                                <i class="ph-bold ph-calendar"></i>
+                                <span class="text">Events Management</span>
+                              </a>
+                            </li>
+                        </li>
+                      </ul>
+                        <li>
+                          <a href="curriculum_management.html">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Curriculum & Syllabus Management</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="communication_tools.html">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Meeting & Communication Tools</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="feedback_system.html">
+                                <i class="icon ph-bold ph-calendar-blank"></i>
+                                <span class="text">Feedback & Evaluation Systems</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="help.html">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-contain">
+        <h2>View/Edit Profile</h2>
+        <div class="form-group">
+            <label for="first-name">First name:</label>
+            <input type="text" id="first-name" name="first-name">
+        </div>
+        <div class="form-group">
+            <label for="last-name">Last name:</label>
+            <input type="text" id="last-name" name="last-name">
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male" selected>Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </div>    
+        <div class="form-group">
+            <label for="number">Phone Number:</label>
+            <input type="number" id="number" name="number">
+        </div>    
+        <div class="form-group">
+            <label for="number">Password</label>
+            <input type="password" id="password" name="password">
+        </div>    
+        <div class="form-group">
+            <label for="number">Confirm Password</label>
+            <input type="password" id="password" name="password">
+        </div>    
+        <button type="submit">Update Profile</button>
+            
+    </div>
+        
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+      integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script> 
+</body>
+</html>

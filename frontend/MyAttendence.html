@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles1.css">
+    <title>Staff Attendance</title>
+    <style>
+        .main-contain {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            max-width: 600px; /* Limit the maximum width of the chart */
+            margin: 20px auto; /* Center the chart */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="User Image">
+                </div>
+                <div class="user-details">
+                    <p class="title">Staff</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="staff-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="Staff_basic.html">
+                              <i class="icon ph-bold ph-user"></i>
+                              <span class="text">Basic Info</span>
+                            </a>
+                        </li>       
+                        <li>
+                            <a href="MyAttendence.html">
+                              <i class="icon ph-bold ph-chart-bar"></i>
+                              <span class="text">Attendance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Staff_leave.html">
+                              <i class="icon ph-bold ph-file-text"></i>
+                              <span class="text">Apply Leaves</span>
+                            </a>
+                        </li>
+                        <li>
+                          <a href="Staff_tt.html">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Time Table</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="Sbattendance.html">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Student Attendance</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-contain">
+            <h2>Staff Attendance for Different Classes</h2>
+            <h3>Class A Attendance</h3>
+            <canvas id="attendanceChartA" width="400" height="200"></canvas>
+            <h3>Class B Attendance</h3>
+            <canvas id="attendanceChartB" width="400" height="200"></canvas>
+            <h3>Class C Attendance</h3>
+            <canvas id="attendanceChartC" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Sample attendance data for Class A
+        const attendanceDataA = {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+            datasets: [{
+                label: 'Class A Attendance',
+                data: [80, 90, 75, 85, 95], // Class A data
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+            }]
+        };
+
+        // Sample attendance data for Class B
+        const attendanceDataB = {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+            datasets: [{
+                label: 'Class B Attendance',
+                data: [70, 85, 80, 90, 60], // Class B data
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 2,
+            }]
+        };
+
+        // Sample attendance data for Class C
+        const attendanceDataC = {
+            labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+            datasets: [{
+                label: 'Class C Attendance',
+                data: [90, 95, 85, 80, 75], // Class C data
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+            }]
+        };
+
+        const configA = {
+            type: 'line',
+            data: attendanceDataA,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100 // Assuming attendance is a percentage
+                    }
+                }
+            }
+        };
+
+        const configB = {
+            type: 'line',
+            data: attendanceDataB,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100 // Assuming attendance is a percentage
+                    }
+                }
+            }
+        };
+
+        const configC = {
+            type: 'line',
+            data: attendanceDataC,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100 // Assuming attendance is a percentage
+                    }
+                }
+            }
+        };
+
+        const attendanceChartA = new Chart(
+            document.getElementById('attendanceChartA'),
+            configA
+        );
+
+        const attendanceChartB = new Chart(
+            document.getElementById('attendanceChartB'),
+            configB
+        );
+
+        const attendanceChartC = new Chart(
+            document.getElementById('attendanceChartC'),
+            configC
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles1.css">
+    <style>
+      /* Dashboard Cards */
+.dashboard-cards {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.dashboard-cards .card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 30%;
+  text-align: center;
+}
+
+.dashboard-cards .card h3 {
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.dashboard-cards .card p {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 10px 0;
+}
+
+.dashboard-cards .card a {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.dashboard-cards .card a:hover {
+  color: #2980b9;
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .dashboard-cards {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .dashboard-cards .card {
+      width: 100%;
+  }
+
+  .sidebar {
+      width: 0;
+      visibility: hidden;
+  }
+
+  .main-contain {
+      margin-left: 0;
+  }
+}
+    </style>
+    <title>Staff Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="User Image">
+                </div>
+                <div class="user-details">
+                    <p class="title">Staff</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <!-- Main Menu -->
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                            <a href="staff-portal.html">
+                                <i class="icon ph-bold ph-house-simple"></i>
+                                <span class="text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Staff_basic.html">
+                                <i class="icon ph-bold ph-user"></i>
+                                <span class="text">Basic Info</span>
+                            </a>
+                        </li>       
+                        <li>
+                            <a href="MyAttendence.html">
+                                <i class="icon ph-bold ph-chart-bar"></i>
+                                <span class="text">Attendance</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Staff_leave.html">
+                                <i class="icon ph-bold ph-file-text"></i>
+                                <span class="text">Apply Leaves</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Staff_tt.html">
+                                <i class="icon ph-bold ph-calendar-blank"></i>
+                                <span class="text">Time Table</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="Sbattendance.html">
+                                <i class="icon ph-bold ph-download"></i>
+                                <span class="text">Student Attendance</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Account Menu -->
+                <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="icon ph-bold ph-info"></i>
+                                <span class="text">Help</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="icon ph-bold ph-sign-out"></i>
+                                <span class="text">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main-contain">
+          <h1>Welcome, User Name</h1>
+          <div class="dashboard-cards">
+              <div class="card">
+                  <h3>My Attendance</h3>
+                  <p>View and track your attendance here.</p>
+                  <a href="MyAttendence.html">View</a>
+              </div>
+              <div class="card">
+                  <h3>Time Table</h3>
+                  <p>Check your class schedule.</p>
+                  <a href="Staff_tt.html">View</a>
+              </div>
+              <div class="card">
+                  <h3>Apply for Leaves</h3>
+                  <p>Submit your leave applications.</p>
+                  <a href="Staff_leave.html">Apply</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+        integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+        crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <script>
+      // script.js
+document.getElementById('toggle-btn').addEventListener('click', function() {
+  document.getElementById('sidebar').classList.toggle('collapsed');
+});
+
+    </script>
+</body>
+</html>

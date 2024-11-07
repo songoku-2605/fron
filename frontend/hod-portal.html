@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" type="svg" href="book.svg"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+      .stats-box {
+          width: 200px;
+          padding: 20px;
+          background-color: #264653;
+          border-radius: 5px;
+          color: white;
+          text-align: center;
+          margin: 0; /* Set margin to 0 to remove spaces */
+          cursor: pointer;
+          display: inline-block; /* Change to inline-block to keep boxes in one line */
+      }
+      
+      /* Additional style to ensure alignment and spacing in the main container */
+      .stats-container {
+          display: flex; /* Use flexbox to align items */
+          justify-content: space-evenly; /* Optional: to distribute space evenly */
+          margin: 20px 0; /* Optional: margin for spacing from other elements */
+      }
+  
+      .expandable-container {
+          display: flex;
+          margin-left: 50px;
+          justify-content:center;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 20px;
+      }
+  
+      .expandable-container.hidden {
+          display: none;
+      }
+  
+      .expandable-box {
+          width: 150px;
+          padding: 15px;
+          border-radius: 5px;
+          background-color: #2A9D8F;
+          color: white;
+          text-align: center;
+          cursor: pointer;
+      }
+
+      table {
+          justify-content:center;
+          width: 50%; /* Full width for tables */
+          border-collapse: collapse; /* Collapse borders */
+          margin-top: 10px; /* Space above the table */
+      }
+
+      th, td {
+          border: 1px solid #ddd; /* Border for cells */
+          padding: 8px; /* Inner padding for cells */
+          text-align: left; /* Left-aligned text */
+      }
+
+      th {
+          background-color: #2A9D8F; /* Header background color */
+          color: white; /* Header text color */
+      }
+      .meeting-data {
+          margin-top: 100px;
+          display: flex;
+          gap: 30px;
+      }
+      
+      #meeting-pie-chart-container {
+          width: 400px;
+          height: 400px;
+      }
+      
+      #todays-meetings-table {
+          margin-top: 50px;
+          width: 400px;
+      }
+      
+      #todays-meetings-table table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+      
+      #todays-meetings-table th, #todays-meetings-table td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: center;
+      }
+      
+      #todays-meetings-table th {
+          background-color: #264653;
+          color: white;
+      }
+    </style>
+    <link rel="stylesheet" href="styles1.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="">
+                </div>
+                <div class="user-details">
+                    <p class="title">HOD - Head of Department</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                          <a href="hod-portal.html">
+                            <i class="icon ph-bold ph-house-simple"></i>
+                            <span class="text">Dashboard</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="basic_info.html">
+                              <i class="icon ph-bold ph-user"></i>
+                              <span class="text">Basic Info</span>
+                            </a>
+                        </li>
+                        <li>       
+                        <a href="#">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Management</span>
+                            <i class="arrow ph-bold ph-caret-down"></i>
+                          </a>
+                          <ul class="sub-menu">
+                          <li>
+                              <a href="staff_management.html">
+                                <i class="icon ph-bold ph-user"></i>
+                                <span class="text">Staff Management</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="student_management.html">
+                                <i class="icon ph-bold ph-user"></i>
+                                <span class="text">Student Management</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="events_management.html">
+                                <i class="ph-bold ph-calendar"></i>
+                                <span class="text">Events Management</span>
+                              </a>
+                            </li>
+                        </li>
+                      </ul>
+                        <li>
+                          <a href="curriculum_management.html">
+                            <i class="icon ph-bold ph-calendar-blank"></i>
+                            <span class="text">Curriculum & Syllabus Management</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="communication_tools.html">
+                            <i class="icon ph-bold ph-download"></i>
+                            <span class="text">Meeting & Communication Tools</span>
+                          </a>
+                        </li>
+                        <li>
+                            <a href="feedback_system.html">
+                                <i class="icon ph-bold ph-calendar-blank"></i>
+                                <span class="text">Feedback & Evaluation Systems</span>
+                            </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                      <li>
+                        <a href="help.html">
+                          <i class="icon ph-bold ph-info"></i>
+                          <span class="text">Help</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="login.html">
+                          <i class="icon ph-bold ph-sign-out"></i>
+                          <span class="text">Logout</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-contain">
+      <div class="stats-container"> <!-- Flex container for stats boxes -->
+        <div class="stats-box" id="total-students">
+            <p>Total Students</p>
+            <span class="student-count"></span>
+        </div>
+        
+        <div class="stats-box" id="total-staff">
+            <p>Total Staff</p>
+            <span class="staff-count"></span>
+        </div>
+
+        <div class="stats-box" id="total-events">
+            <p>Total Events</p>
+            <span class="event-count"></span>
+        </div>
+    </div>
+    
+    <div id="yearly-students" class="expandable-container hidden"></div>
+
+    <div id="section-students" class="expandable-container hidden"></div>
+
+    <div id="subject-staff" class="expandable-container hidden"></div>
+
+    <div id="staff-details" class="expandable-container hidden"></div>
+
+    <div id="event-categories" class="expandable-container hidden"></div>
+
+    <div id="event-details" class="expandable-container hidden"></div>
+    <!-- New Section for Meeting Data -->
+<div class="meeting-data">
+<!-- Container for Pie Chart -->
+<div id="meeting-pie-chart-container">
+    <canvas id="meeting-pie-chart"></canvas>
+</div>
+
+<!-- Table for Today's Meetings -->
+<div id="todays-meetings-table">
+    <h3>Today's Meetings</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Meeting Title</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="todays-meetings-body">
+            <!-- Rows will be dynamically populated by JavaScript -->
+        </tbody>
+    </table>
+</div>
+</div>
+</div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+  integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+  crossorigin="anonymous"
+></script>
+<script src="script.js"></script> 
+<script>
+    $(document).ready(function () {
+        // Mock data for students, staff, and events
+        const studentsPerYear = {
+            "First Year": 100,
+            "Second Year": 120,
+            "Third Year": 90,
+            "Fourth Year": 110
+        };
+
+        const sectionsPerYear = {
+            "First Year": {"A": 50, "B": 50},
+            "Second Year": {"A": 60, "B": 60},
+            "Third Year": {"A": 45, "B": 45},
+            "Fourth Year": {"A": 55, "B": 55}
+        };
+
+        const staffPerSubject = {
+            "Data Structures": 5,
+            "Algorithms": 4,
+            "Operating Systems": 3,
+            "Database Systems": 6
+        };
+
+        const staffDetails = {
+            "Data Structures": ["Dr. Smith", "Prof. Johnson", "Prof. Davis", "Dr. Martinez", "Dr. Lee"],
+            "Algorithms": ["Dr. Brown", "Prof. Wilson", "Dr. Moore", "Prof. Taylor"],
+            "Operating Systems": ["Dr. Anderson", "Prof. Thomas", "Prof. Jackson"],
+            "Database Systems": ["Prof. White", "Dr. Harris", "Prof. Martin", "Prof. Thompson", "Prof. Garcia", "Prof. Clark"]
+        };
+
+        const eventsPerCategory = {
+            "Technical": 3,
+            "Non-Technical": 3,
+            "Cultural": 7
+        };
+
+        const eventDetails = {
+            "Technical": ["Tech Quiz", "Coding Contest", "Hackathon"],
+            "Non-Technical": ["Debate", "Public Speaking", "Writing Contest"],
+            "Cultural": ["Dance Competition", "Music Night", "Art Exhibition", "Drama", "Photography Contest", "Fashion Show", "Poetry Reading"]
+        };
+
+        function hideAllExpandableContainers() {
+            $('#yearly-students').addClass('hidden');
+            $('#section-students').addClass('hidden');
+            $('#subject-staff').addClass('hidden');
+            $('#staff-details').addClass('hidden');
+            $('#event-categories').addClass('hidden');
+            $('#event-details').addClass('hidden');
+        }
+
+        // Toggle display of yearly students when total students box is clicked
+        $('#total-students').on('click', function () {
+            if ($('#yearly-students').hasClass('hidden')) {
+                hideAllExpandableContainers();
+                $('#yearly-students').empty().removeClass('hidden');
+
+                for (const [year, count] of Object.entries(studentsPerYear)) {
+                    $('#yearly-students').append(`
+                        <div class="expandable-box" data-year="${year}">
+                            <p>${year}</p>
+                            <span>${count} students</span>
+                        </div>
+                    `);
+                }
+            } else {
+                $('#yearly-students').addClass('hidden'); // Hide if already visible
+            }
+        });
+
+        // Toggle display of sections when a year box is clicked
+        $('#yearly-students').on('click', '.expandable-box', function () {
+            const year = $(this).data('year');
+            const sections = sectionsPerYear[year];
+
+            if ($('#section-students').hasClass('hidden') || $('#section-students').data('year') !== year) {
+                $('#section-students').empty().removeClass('hidden').data('year', year);
+
+                const tableHeader = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Section</th>
+                                <th>Number of Students</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                let tableRows = '';
+
+                for (const [section, count] of Object.entries(sections)) {
+                    tableRows += `
+                        <tr>
+                            <td>Section ${section}</td>
+                            <td>${count} students</td>
+                        </tr>
+                    `;
+                }
+
+                const tableFooter = `
+                        </tbody>
+                    </table>
+                `;
+
+                $('#section-students').append(tableHeader + tableRows + tableFooter);
+            } else {
+                $('#section-students').addClass('hidden'); // Hide if already visible
+            }
+        });
+
+        // Toggle display of subjects when total staff box is clicked
+        $('#total-staff').on('click', function () {
+            if ($('#subject-staff').hasClass('hidden')) {
+                hideAllExpandableContainers();
+                $('#subject-staff').empty().removeClass('hidden');
+
+                for (const [subject, count] of Object.entries(staffPerSubject)) {
+                    $('#subject-staff').append(`
+                        <div class="expandable-box" data-subject="${subject}">
+                            <p>${subject}</p>
+                            <span>${count} staff</span>
+                        </div>
+                    `);
+                }
+            } else {
+                $('#subject-staff').addClass('hidden'); // Hide if already visible
+            }
+        });
+
+        // Toggle display of staff details when a subject box is clicked
+        $('#subject-staff').on('click', '.expandable-box', function () {
+            const subject = $(this).data('subject');
+            const staffList = staffDetails[subject];
+
+            if ($('#staff-details').hasClass('hidden') || $('#staff-details').data('subject') !== subject) {
+                $('#staff-details').empty().removeClass('hidden').data('subject', subject);
+
+                const tableHeader = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Staff Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                let tableRows = '';
+
+                staffList.forEach(staff => {
+                    tableRows += `
+                        <tr>
+                            <td>${staff}</td>
+                        </tr>
+                    `;
+                });
+
+                const tableFooter = `
+                        </tbody>
+                    </table>
+                `;
+
+                $('#staff-details').append(tableHeader + tableRows + tableFooter);
+            } else {
+                $('#staff-details').addClass('hidden'); // Hide if already visible
+            }
+        });
+
+        // Toggle display of categories when total events box is clicked
+        $('#total-events').on('click', function () {
+            if ($('#event-categories').hasClass('hidden')) {
+                hideAllExpandableContainers();
+                $('#event-categories').empty().removeClass('hidden');
+
+                for (const [category, count] of Object.entries(eventsPerCategory)) {
+                    $('#event-categories').append(`
+                        <div class="expandable-box" data-category="${category}">
+                            <p>${category}</p>
+                            <span>${count} events</span>
+                        </div>
+                    `);
+                }
+            } else {
+                $('#event-categories').addClass('hidden'); // Hide if already visible
+            }
+        });
+
+        // Toggle display of event details when a category box is clicked
+        $('#event-categories').on('click', '.expandable-box', function () {
+            const category = $(this).data('category');
+            const events = eventDetails[category];
+
+            if ($('#event-details').hasClass('hidden') || $('#event-details').data('category') !== category) {
+                $('#event-details').empty().removeClass('hidden').data('category', category);
+
+                const tableHeader = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Event Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+
+                let tableRows = '';
+
+                events.forEach(event => {
+                    tableRows += `
+                        <tr>
+                            <td>${event}</td>
+                        </tr>
+                    `;
+                });
+
+                const tableFooter = `
+                        </tbody>
+                    </table>
+                `;
+
+                $('#event-details').append(tableHeader + tableRows + tableFooter);
+            } else {
+                $('#event-details').addClass('hidden'); // Hide if already visible
+            }
+        });
+    });
+</script>
+
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+$(document).ready(function () {
+// Meeting data for the pie chart
+const meetingStatusData = {
+    finished: 5,
+    upcoming: 8,
+    cancelled: 2,
+    postponed: 3
+};
+
+// Today's meetings data
+const todaysMeetings = [
+    { title: "Project Sync", time: "10:00 AM", status: "Finished" },
+    { title: "Department Update", time: "12:00 PM", status: "Upcoming" },
+    { title: "Client Call", time: "2:30 PM", status: "Cancelled" }
+];
+
+// Initialize Pie Chart with Chart.js
+const ctx = document.getElementById('meeting-pie-chart').getContext('2d');
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Finished', 'Upcoming', 'Cancelled', 'Postponed'],
+        datasets: [{
+            label: 'Meeting Status',
+            data: Object.values(meetingStatusData),
+            backgroundColor: ['#2A9D8F', '#264653', '#E76F51', '#F4A261'],
+            borderColor: ['#264653', '#264653', '#264653', '#264653'],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (tooltipItem) {
+                        const label = tooltipItem.label || '';
+                        const count = tooltipItem.raw;
+                        return `${label}: ${count} meetings`;
+                    }
+                }
+            }
+        }
+    }
+});
+
+// Populate the Today's Meetings Table
+const todaysMeetingsBody = $('#todays-meetings-body');
+todaysMeetings.forEach(meeting => {
+    todaysMeetingsBody.append(`
+        <tr>
+            <td>${meeting.title}</td>
+            <td>${meeting.time}</td>
+            <td>${meeting.status}</td>
+        </tr>
+    `);
+});
+});
+</script>
+
+</div>
+</body>
+</html>
+

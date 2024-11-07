@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="Logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles1.css">
+    <style>
+        .main-content {
+            width: 80%;
+            margin-left: 20%;
+            padding: 20px;
+        }
+        .containers {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .containers .form-section {
+            width: 48%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .input-section, .view-section {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="date"], input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 40%;
+            background-color: #264653;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2a4d61;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #264653;
+            color: white;
+        }
+    </style>
+    <title>Event Management</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar / Navbar -->
+        <div class="sidebar">
+            <div class="head">
+                <div class="user-img">
+                    <img src="bg.jpg" alt="User Image">
+                </div>
+                <div class="user-details">
+                    <p class="title">HOD - Head of Department</p>
+                    <p class="name">User Name</p>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="menu">
+                    <p class="title">Main</p>
+                    <ul>
+                        <li>
+                            <a href="hod-portal.html">
+                                <i class="icon ph-bold ph-house-simple"></i>
+                                <span class="text">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="basic_info.html">
+                                <i class="icon ph-bold ph-user"></i>
+                                <span class="text">Basic Info</span>
+                            </a>
+                        </li>
+                        <li>       
+                            <a href="#">
+                                <i class="icon ph-bold ph-download"></i>
+                                <span class="text">Management</span>
+                                <i class="arrow ph-bold ph-caret-down"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="staff_management.html">
+                                        <i class="icon ph-bold ph-user"></i>
+                                        <span class="text">Staff Management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="student_management.html">
+                                        <i class="icon ph-bold ph-user"></i>
+                                        <span class="text">Student Management</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="events_management.html">
+                                        <i class="ph-bold ph-calendar"></i>
+                                        <span class="text">Events Management</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="curriculum_management.html">
+                                <i class="icon ph-bold ph-calendar-blank"></i>
+                                <span class="text">Curriculum & Syllabus Management</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="communication_tools.html">
+                                <i class="icon ph-bold ph-download"></i>
+                                <span class="text">Meeting & Communication Tools</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="feedback_system.html">
+                                <i class="icon ph-bold ph-calendar-blank"></i>
+                                <span class="text">Feedback & Evaluation Systems</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu">
+                    <p class="title">Account</p>
+                    <ul>
+                        <li>
+                            <a href="help.html">
+                                <i class="icon ph-bold ph-info"></i>
+                                <span class="text">Help</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.html">
+                                <i class="icon ph-bold ph-sign-out"></i>
+                                <span class="text">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="buttons-section">
+                <button id="addMeetingBtn">Add Meeting</button>
+                <button id="scheduleClassBtn">Schedule Class</button>
+                <button id="planSubjectBtn">Plan Subject</button>
+            </div>
+
+            <!-- Add Meeting Section -->
+            <div class="containers input-section" id="addMeetingSection">
+                <div class="form-section">
+                    <h2>Add Meeting</h2>
+                    <form id="meetingForm">
+                        <label for="meetingName">Meeting Name:</label>
+                        <input type="text" id="meetingName" name="meetingName" required>
+
+                        <label for="meetingDate">Date:</label>
+                        <input type="date" id="meetingDate" name="meetingDate" required>
+
+                        <label for="meetingTime">Time:</label>
+                        <input type="time" id="meetingTime" name="meetingTime" required>
+
+                        <label for="meetingVenue">Venue:</label>
+                        <input type="text" id="meetingVenue" name="meetingVenue" required>
+
+                        <button type="submit">Add Meeting</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Schedule Class Section -->
+            <div class="containers input-section" id="scheduleClassSection" style="display: none;">
+                <div class="form-section">
+                    <h2>Schedule Class</h2>
+                    <form id="classForm">
+                        <label for="className">Class Name:</label>
+                        <input type="text" id="className" name="className" required>
+
+                        <label for="classDate">Date:</label>
+                        <input type="date" id="classDate" name="classDate" required>
+
+                        <label for="classTime">Time:</label>
+                        <input type="time" id="classTime" name="classTime" required>
+
+                        <label for="classVenue">Venue:</label>
+                        <input type="text" id="classVenue" name="classVenue" required>
+
+                        <button type="submit">Schedule Class</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Plan Subject Section -->
+            <div class="containers input-section" id="planSubjectSection" style="display: none;">
+                <div class="form-section">
+                    <h2>Plan Subject</h2>
+                    <form id="subjectForm">
+                        <label for="subjectName">Subject Name:</label>
+                        <input type="text" id="subjectName" name="subjectName" required>
+
+                        <label for="subjectCode">Subject Code:</label>
+                        <input type="text" id="subjectCode" name="subjectCode" required>
+
+                        <label for="subjectCredits">Credits:</label>
+                        <input type="number" id="subjectCredits" name="subjectCredits" min="1" required>
+
+                        <button type="submit">Plan Subject</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+    <script src="script.js"></script>
+    <script src="communication_tools.js"></script>
+</body>
+</html>
